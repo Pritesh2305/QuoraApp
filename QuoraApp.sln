@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.1231
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuoraApp.DomainModels", "..\QuoraApp.DomainModels\QuoraApp.DomainModels.csproj", "{67AC49E9-F711-4118-A767-BC258453B1EF}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuoraApp.ServiceLayer", "QuoraApp.ServiceLayer\QuoraApp.ServiceLayer.csproj", "{D9174330-7879-4F08-A016-314D72B47242}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuoraApp.ViewModels", "QuoraApp.ViewModels\QuoraApp.ViewModels.csproj", "{B4425F73-A257-4A62-BCAF-60C72D14DDC0}"
@@ -13,16 +11,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuoraApp.UI", "QuoraApp.UI\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuoraApp.Repository", "QuoraApp.Repository\QuoraApp.Repository.csproj", "{EBC18F3B-F4D2-434C-BDED-97AECE9007BD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuoraApp.DomainModels", "QuoraApp.DomainModels\QuoraApp.DomainModels.csproj", "{EBD54500-8B16-497F-87BD-63EEF94D11FB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{67AC49E9-F711-4118-A767-BC258453B1EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{67AC49E9-F711-4118-A767-BC258453B1EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{67AC49E9-F711-4118-A767-BC258453B1EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{67AC49E9-F711-4118-A767-BC258453B1EF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D9174330-7879-4F08-A016-314D72B47242}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D9174330-7879-4F08-A016-314D72B47242}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9174330-7879-4F08-A016-314D72B47242}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,6 +35,10 @@ Global
 		{EBC18F3B-F4D2-434C-BDED-97AECE9007BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EBC18F3B-F4D2-434C-BDED-97AECE9007BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EBC18F3B-F4D2-434C-BDED-97AECE9007BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBD54500-8B16-497F-87BD-63EEF94D11FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBD54500-8B16-497F-87BD-63EEF94D11FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBD54500-8B16-497F-87BD-63EEF94D11FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBD54500-8B16-497F-87BD-63EEF94D11FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
