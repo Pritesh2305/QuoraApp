@@ -38,34 +38,45 @@ namespace QuoraApp.Repository
 
         public void DeleteUser(int uid)
         {
-
-
-
-            throw new NotImplementedException();
+            dc.Users.Remove(dc.Users.Find(uid));
+            dc.SaveChanges();
         }
 
         public List<User> GetUsers()
         {
             List<User> Users = (from p in dc.Users
                                 where p.IsAdmin == false
+                                orderby p.Name
                                 select p).ToList();
-
             return Users;
         }
 
         public List<User> GetUsersByEmail(string Email)
         {
-            throw new NotImplementedException();
+            List<User> Users = (from p in dc.Users
+                                where p.Email == Email
+                                select p).ToList();
+            return Users;
         }
 
         public List<User> GetUsersByEmailAndPassword(string Email, string Password)
         {
-            throw new NotImplementedException();
+            List<User> Users = (from p in dc.Users
+                                where p.Email == Email && p.PasswordHash == Password
+                                select p
+                                ).ToList();
+
+            return Users;
         }
 
         public List<User> GetUsersByUserID(int UserID)
         {
-            throw new NotImplementedException();
+            List<User> Users = (from p in dc.Users
+                                where p.UserID == UserID
+                                select p
+                               ).ToList();
+
+            return Users;
         }
 
         public void InsertUser(User user)
