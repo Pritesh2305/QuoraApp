@@ -17,7 +17,7 @@ namespace QuoraApp.DomainModels
 
         public string  Mobile { get; set; }
 
-        public string  IsAdmin { get; set; }
+        public bool  IsAdmin { get; set; }
 
     }
 }
