@@ -33,7 +33,7 @@ namespace QuoraApp.Repository
 
         public void DeleteCategory(int cid)
         {
-            throw new NotImplementedException();
+            dc.Categories.Remove(dc.Categories.Find(cid));            
         }
 
         public List<Category> GetCategories()
