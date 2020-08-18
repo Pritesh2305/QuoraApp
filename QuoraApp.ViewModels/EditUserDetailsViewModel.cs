@@ -7,23 +7,17 @@ using System.Threading.Tasks;
 
 namespace QuoraApp.ViewModels
 {
-    public class UserViewModel
+    public class EditUserDetailsViewModel
     {
-        public int UserID { get; set; }
-        
         [Required]
         [EmailAddress]
         public string Email { get; set; }
-
-        [Required]
-        public string PasswordHash { get; set; }
 
         [Required]
         public string Name { get; set; }
 
         [Required]
         public string Mobile { get; set; }
-
-        public bool IsAdmin { get; set; }
+        
     }
 }
