@@ -124,6 +124,10 @@
       <Project>{ebd54500-8b16-497f-87bd-63eef94d11fb}</Project>
       <Name>QuoraApp.DomainModels</Name>
     </ProjectReference>
+    <ProjectReference Include="..\QuoraApp.ViewModels\QuoraApp.ViewModels.csproj">
+      <Project>{b4425f73-a257-4a62-bcaf-60c72d14ddc0}</Project>
+      <Name>QuoraApp.ViewModels</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
