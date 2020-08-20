@@ -117,11 +117,14 @@ namespace QuoraApp.Repository
 
         public int GetLatestUserID()
         {
-            List<User> list1 = (from p in dc.Users
-                                orderby p.UserID descending
-                                select p).ToList();
+           var list1 = (from p in dc.Users
+                                select new {p.UserID}
+                                ).ToList();
             var maxno = list1.Max();
-            return Convert.ToInt16(maxno);
+
+            int maxno1 = 0;
+            int.TryParse(list1.Max().ToString(), out maxno1);
+            return maxno1;
         }
 
     }

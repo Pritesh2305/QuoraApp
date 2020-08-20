@@ -22,11 +22,13 @@ namespace QuoraApp.ServiceLayer
 
         List<UserViewModel> GetUsers();
 
-        List<UserViewModel> GetUsersByEmailAndPassword(string Email, string Password);
+        UserViewModel GetUsersByEmailAndPassword(string Email, string Password);
 
-        List<UserViewModel> GetUsersByEmail(string Email);
+        UserViewModel GetUsersByEmail(string Email);
 
-        List<UserViewModel> GetUsersByUserID(int UserID);
+        UserViewModel GetUsersByUserID(int UserID);
+
+        int GetLatestUserID();
     }
 
     public class UserService : IUserService
@@ -55,5 +57,109 @@ namespace QuoraApp.ServiceLayer
             return uid;
         }
 
+        public void UpdateUserDetails(EditUserDetailsViewModel uvm)
+        {
+            var config = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<EditUserDetailsViewModel, User>();
+                cfg.IgnoreUnmapped();
+            });
+            IMapper mapper = config.CreateMapper();
+
+            User u = mapper.Map<EditUserDetailsViewModel, User>(uvm);
+            ur.UpdateUserDetails(u);
+        }
+
+        public void UpdateUserPassword(EditUserPasswordViewModel uvm)
+        {
+            var config = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<EditUserPasswordViewModel, User>();
+                cfg.IgnoreUnmapped();
+            });
+            IMapper mapper = config.CreateMapper();
+            User u = mapper.Map<EditUserPasswordViewModel, User>(uvm);
+            u.PasswordHash = SHA256HashGenerator.GenerateHash(uvm.Password);
+            ur.UpdateUserPassword(u);
+        }
+
+        public void DeleteUser(int uid)
+        {
+            ur.DeleteUser(uid);
+        }
+
+        public List<UserViewModel> GetUsers()
+        {
+            List<User> u = ur.GetUsers();
+
+            var config = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<User, UserViewModel>();
+                cfg.IgnoreUnmapped();
+            });
+            IMapper mapper = config.CreateMapper();
+            List<UserViewModel> uvm = mapper.Map<List<User>, List<UserViewModel>>(u);
+
+            return uvm;
+        }
+
+        public UserViewModel GetUsersByEmailAndPassword(string Email, string Password)
+        {
+            User u = ur.GetUsersByEmailAndPassword(Email, Password).FirstOrDefault();
+            UserViewModel uvm = null;
+            if (u != null)
+            {
+                var config = new MapperConfiguration(cfg =>
+                {
+                    cfg.CreateMap<User, UserViewModel>();
+                    cfg.IgnoreUnmapped();
+                });
+                IMapper mapper = config.CreateMapper();
+                uvm = mapper.Map<User, UserViewModel>(u);
+            }
+            return uvm;
+        }
+
+        public UserViewModel GetUsersByEmail(string Email)
+        {
+            User u = ur.GetUsersByEmail(Email).FirstOrDefault();
+            UserViewModel uvm = null;
+
+            if (u != null)
+            {
+                var config = new MapperConfiguration(cfg =>
+                {
+                    cfg.CreateMap<User, UserViewModel>();
+                    cfg.IgnoreUnmapped();
+                });
+                IMapper mapper = config.CreateMapper();
+                uvm = mapper.Map<User, UserViewModel>(u);
+            }
+            return uvm;
+        }
+
+        public UserViewModel GetUsersByUserID(int UserID)
+        {
+            User u = ur.GetUsersByUserID(UserID).FirstOrDefault();
+            UserViewModel uvm = null;
+
+            if (u != null)
+            {
+                var config = new MapperConfiguration(cfg =>
+                {
+                    cfg.CreateMap<User, UserViewModel>();
+                    cfg.IgnoreUnmapped();
+                });
+                IMapper mapper = config.CreateMapper();
+                uvm = mapper.Map<User, UserViewModel>(u);
+            }
+            return uvm;
+        }
+
+        public int GetLatestUserID()
+        {
+            int maxval = ur.GetLatestUserID();
+            return maxval;
+        }
     }
 }
