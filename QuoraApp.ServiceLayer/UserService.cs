@@ -40,6 +40,7 @@ namespace QuoraApp.ServiceLayer
             ur = new UserRepository();
         }
 
+        //Insert
         public int InsertUser(RegisterViewModel uvm)
         {
             var config = new MapperConfiguration(cfg =>
