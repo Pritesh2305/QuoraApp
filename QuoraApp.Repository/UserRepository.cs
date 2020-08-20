@@ -25,6 +25,8 @@ namespace QuoraApp.Repository
 
         List<User> GetUsersByUserID(int UserID);
 
+        int GetLatestUserID();
+
     }
 
     public class UserRepository : IUserRepository
@@ -112,5 +114,15 @@ namespace QuoraApp.Repository
                 dc.SaveChanges();
             }            
         }
+
+        public int GetLatestUserID()
+        {
+            List<User> list1 = (from p in dc.Users
+                                orderby p.UserID descending
+                                select p).ToList();
+            var maxno = list1.Max();
+            return Convert.ToInt16(maxno);
+        }
+
     }
 }

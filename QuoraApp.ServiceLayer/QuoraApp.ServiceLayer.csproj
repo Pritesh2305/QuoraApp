@@ -53,11 +53,17 @@
   <ItemGroup>
     <Compile Include="MapperExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SHA256HashGenerator.cs" />
+    <Compile Include="UserService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\QuoraApp.DomainModels\QuoraApp.DomainModels.csproj">
       <Project>{ebd54500-8b16-497f-87bd-63eef94d11fb}</Project>
       <Name>QuoraApp.DomainModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QuoraApp.Repository\QuoraApp.Repository.csproj">
+      <Project>{EBC18F3B-F4D2-434C-BDED-97AECE9007BD}</Project>
+      <Name>QuoraApp.Repository</Name>
     </ProjectReference>
     <ProjectReference Include="..\QuoraApp.ViewModels\QuoraApp.ViewModels.csproj">
       <Project>{b4425f73-a257-4a62-bcaf-60c72d14ddc0}</Project>
